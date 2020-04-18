@@ -1,3 +1,4 @@
+use clap::App;
 use std::fs;
 use std::os::unix::fs::OpenOptionsExt;
 use std::os::unix::fs::PermissionsExt;
@@ -9,12 +10,16 @@ const USER_PLUS_LIST_OCTLET: u32 = 0o700;
 type Result<T> = std::result::Result<T, Box<dyn error::Error>>;
 
 fn main() -> Result<()> {
+    App::new(env!("APP_NAME"))
+        .version(env!("VERSION"))
+        .author(env!("AUTHOR_EMAIL"))
+        .about("Fix the permissions on the GnuPG config directory.")
+        .get_matches();
     fix_gnupg_permissions(gnuhome_dir)
 }
 
 fn fix_gnupg_permissions(gnu_home: impl FnOnce() -> String) -> Result<()> {
     let gnupg_dir = gnu_home();
-    println!("{}", &gnupg_dir);
     let config_file = format!("{}/gpg-agent.conf", gnupg_dir);
     fs::create_dir_all(&gnupg_dir)?;
     set_directory_permission(&gnupg_dir, USER_PLUS_LIST_OCTLET);
@@ -58,7 +63,6 @@ mod tests {
 
     use std::fs;
     use std::fs::File;
-    use std::os::unix::fs::MetadataExt;
     use std::os::unix::fs::PermissionsExt;
     use std::process::Command;
     use tempfile::tempdir;
