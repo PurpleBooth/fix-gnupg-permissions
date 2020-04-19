@@ -19,7 +19,7 @@ brew tap PurpleBooth/repo
 Next install the binary
 
 ``` shell
-brew install fix-gnupg-permissions
+brew install PurpleBooth/repo/fix-gnupg-permissions
 ```
 
 You can also download the [latest
