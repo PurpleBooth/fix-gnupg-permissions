@@ -9,11 +9,13 @@ const USER_PLUS_LIST_OCTLET: u32 = 0o700;
 
 type Result<T> = std::result::Result<T, Box<dyn error::Error>>;
 
+use clap::{crate_authors, crate_version};
+
 fn main() -> Result<()> {
-    App::new(env!("APP_NAME"))
-        .version(env!("VERSION"))
-        .author(env!("AUTHOR_EMAIL"))
-        .about("Fix the permissions on the GnuPG config directory.")
+    App::new(env!("CARGO_PKG_NAME"))
+        .version(crate_version!())
+        .author(crate_authors!())
+        .about(env!("CARGO_PKG_DESCRIPTION"))
         .get_matches();
     fix_gnupg_permissions(gnuhome_dir)
 }
@@ -57,8 +59,8 @@ fn set_directory_permission(config_file: &str, permission: u32) {
 
 #[cfg(test)]
 mod tests {
-
     use super::*;
+
     const PERMISSIONS_ONLY_MASK: u32 = 0o777;
 
     use std::fs;

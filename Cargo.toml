@@ -1,8 +1,9 @@
 [package]
 name = "fix-gnupg-permissions"
 version = "0.5.0"
-authors = ["Billie Thompson <billie@billiecodes.com>"]
+authors = ["Billie Thompson <billie+fix-gnupg-permissions@billiecodes.com>"]
 edition = "2018"
+description = "Fix the permissions on the GnuPG config directory."
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
