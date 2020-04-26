@@ -1,8 +1,10 @@
 use clap::App;
-use std::fs;
-use std::os::unix::fs::OpenOptionsExt;
-use std::os::unix::fs::PermissionsExt;
-use std::{env, error};
+use std::{
+    env,
+    error,
+    fs,
+    os::unix::fs::{OpenOptionsExt, PermissionsExt},
+};
 
 const USER_ONLY_OCTLET: u32 = 0o600;
 const USER_PLUS_LIST_OCTLET: u32 = 0o700;
@@ -59,14 +61,13 @@ fn set_directory_permission(config_file: &str, permission: u32) {
 
 #[cfg(test)]
 mod tests {
+    #![allow(clippy::wildcard_imports)]
+
     use super::*;
 
     const PERMISSIONS_ONLY_MASK: u32 = 0o777;
 
-    use std::fs;
-    use std::fs::File;
-    use std::os::unix::fs::PermissionsExt;
-    use std::process::Command;
+    use std::{fs, fs::File, os::unix::fs::PermissionsExt, process::Command};
     use tempfile::tempdir;
 
     #[test]
@@ -79,9 +80,8 @@ mod tests {
         env::remove_var("GNUPGHOME");
         assert_eq!(gnupg_home.to_str().unwrap(), gnuhome_dir());
 
-        match old {
-            Ok(var) => env::set_var("GNUPGHOME", var),
-            _ => {}
+        if let Ok(var) = old {
+            env::set_var("GNUPGHOME", var)
         }
     }
 
@@ -91,9 +91,8 @@ mod tests {
         env::set_var("GNUPGHOME", "something");
         assert_eq!("something", gnuhome_dir());
 
-        match old {
-            Ok(var) => env::set_var("GNUPGHOME", var),
-            _ => {}
+        if let Ok(var) = old {
+            env::set_var("GNUPGHOME", var)
         }
     }
 

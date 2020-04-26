@@ -5,6 +5,10 @@ authors = ["Billie Thompson <billie+fix-gnupg-permissions@billiecodes.com>"]
 edition = "2018"
 description = "Fix the permissions on the GnuPG config directory."
 license = "Creative Commons Zero v1.0 Universal"
+repository = "https://github.com/PurpleBooth/fix-gnupg-permissions/"
+readme = "README.md"
+keywords = ["gnupg", "permissions"]
+categories = ["command-line-utilities"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
