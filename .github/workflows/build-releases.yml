@@ -74,8 +74,8 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           default: true
-          profile: nightly
-          toolchain: stable
+          profile: minimal
+          toolchain: nightly
       -
         uses: actions-rs/cargo@v1
         with:
