@@ -71,13 +71,13 @@ mod tests {
     use tempfile::tempdir;
 
     #[test]
-    fn it_uses_the_default_directory() {
+    fn no_gnupg_home_set() {
         let old = env::var("GNUPGHOME");
+        env::remove_var("GNUPGHOME");
 
         let home = dirs::home_dir().unwrap();
         let gnupg_home = home.join(".gnupg");
 
-        env::remove_var("GNUPGHOME");
         assert_eq!(gnupg_home.to_str().unwrap(), gnuhome_dir());
 
         if let Ok(var) = old {
@@ -89,10 +89,13 @@ mod tests {
     fn it_uses_the_directory_set_in_gnupg_home() {
         let old = env::var("GNUPGHOME");
         env::set_var("GNUPGHOME", "something");
+        
         assert_eq!("something", gnuhome_dir());
 
         if let Ok(var) = old {
             env::set_var("GNUPGHOME", var)
+        } else {
+            env::remove_var("GNUPGHOME");
         }
     }
 
