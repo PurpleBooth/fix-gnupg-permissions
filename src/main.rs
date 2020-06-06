@@ -89,7 +89,7 @@ mod tests {
     fn it_uses_the_directory_set_in_gnupg_home() {
         let old = env::var("GNUPGHOME");
         env::set_var("GNUPGHOME", "something");
-        
+
         assert_eq!("something", gnuhome_dir());
 
         if let Ok(var) = old {

@@ -11,7 +11,7 @@ show-help:
 .PHONY: test
 ## Test it was built ok
 test:
-	RUST_BACKTRACE=1 rustup run stable cargo test --locked
+	RUST_BACKTRACE=1 rustup run stable cargo test --locked -- --test-threads=1
 
 .PHONY: build
 ## Test it was built ok
