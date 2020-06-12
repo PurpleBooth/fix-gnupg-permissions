@@ -1,8 +1,6 @@
 use clap::App;
 use std::{
-    env,
-    error,
-    fs,
+    env, error, fs,
     os::unix::fs::{OpenOptionsExt, PermissionsExt},
 };
 
