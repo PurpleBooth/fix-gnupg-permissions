@@ -179,6 +179,16 @@ jobs:
           file: "Cargo.toml"
           key: "package.version"
           value: ${{ steps.get_current_version.outputs.VERSION }}
+      - name: Import GPG key
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@v2
+        with:
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+          git_tag_gpgsign: true
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.SIGNING_KEY_PRIV }}
+          PASSPHRASE: ${{ secrets.SIGNING_KEY_PASS }}
       - uses: actions-rs/cargo@v1
         with:
           command: check
