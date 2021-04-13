@@ -1,6 +1,6 @@
 [package]
 name = "fix-gnupg-permissions"
-version = "0.49.29"
+version = "0.49.30"
 authors = [
   "Billie Thompson <billie+fix-gnupg-permissions@billiecodes.com>"
 ]
