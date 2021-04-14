@@ -152,7 +152,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
         GITHUB_USER: ${{ github.actor }}
     - name: Generate release
-      if: ${{ contains(steps.get_versio_plan.outputs.BUMP, ' -> ') }}
+      if: contains(steps.get_versio_plan.outputs.BUMP, ' -> ')
       run: versio release
       env:
         GITHUB_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
