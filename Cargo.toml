@@ -13,7 +13,7 @@ keywords = [ "gnupg", "permissions" ]
 categories = [ "command-line-utilities" ]
 
 [dependencies]
-dirs = "3.0.1"
+dirs = "3.0.2"
 clap = "2.33.3"
 
 [dev-dependencies]
