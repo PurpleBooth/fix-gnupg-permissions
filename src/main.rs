@@ -79,7 +79,7 @@ mod tests {
         assert_eq!(gnupg_home.to_str().unwrap(), gnuhome_dir());
 
         if let Ok(var) = old {
-            env::set_var("GNUPGHOME", var)
+            env::set_var("GNUPGHOME", var);
         }
     }
 
@@ -91,7 +91,7 @@ mod tests {
         assert_eq!("something", gnuhome_dir());
 
         if let Ok(var) = old {
-            env::set_var("GNUPGHOME", var)
+            env::set_var("GNUPGHOME", var);
         } else {
             env::remove_var("GNUPGHOME");
         }
