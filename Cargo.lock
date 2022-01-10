@@ -95,7 +95,7 @@ dependencies = [
 
 [[package]]
 name = "fix-gnupg-permissions"
-version = "0.49.35"
+version = "0.49.36"
 dependencies = [
  "clap",
  "dirs",
