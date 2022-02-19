@@ -1,4 +1,4 @@
-use clap::App;
+use clap::Command;
 use std::{
     env, error, fs,
     os::unix::fs::{OpenOptionsExt, PermissionsExt},
@@ -12,7 +12,7 @@ type Result<T> = std::result::Result<T, Box<dyn error::Error>>;
 use clap::{crate_authors, crate_version};
 
 fn main() -> Result<()> {
-    App::new(env!("CARGO_PKG_NAME"))
+    Command::new(env!("CARGO_PKG_NAME"))
         .version(crate_version!())
         .author(crate_authors!())
         .about(env!("CARGO_PKG_DESCRIPTION"))
