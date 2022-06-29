@@ -14,7 +14,7 @@ categories = [ "command-line-utilities" ]
 
 [dependencies]
 dirs = "4.0.0"
-clap = { version = "3.2.6", features = ["derive", "cargo", "wrap_help", "yaml", "env", "unicode" ] }
+clap = { version = "3.2.7", features = ["derive", "cargo", "wrap_help", "yaml", "env", "unicode" ] }
 
 [dev-dependencies]
 tempfile = "3.3.0"
