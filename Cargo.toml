@@ -13,7 +13,7 @@ keywords = [ "gnupg", "permissions" ]
 categories = [ "command-line-utilities" ]
 
 [dependencies]
-dirs = "4.0.0"
+dirs = "5.0.1"
 clap = { version = "3.2.22", features = ["derive", "cargo", "wrap_help", "yaml", "env", "unicode" ] }
 
 [dev-dependencies]
